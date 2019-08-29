@@ -16,6 +16,8 @@ func init() {
 func run() bool {
 	runnerLog("Running...")
 
+	mainLog("cmd args is %v", cmdArgs)
+
 
 	var cmd *exec.Cmd
 	if len(cmdArgs) == 0  {
