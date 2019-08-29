@@ -1,15 +1,26 @@
 package runner
 
 import (
+	"flag"
 	"io"
 	"os/exec"
 )
+
+var cmdArgs string
+
+func init() {
+	flag.StringVar(&cmdArgs, "name", "", "Command line arguments to pass to the process")
+}
 
 func run() bool {
 	runnerLog("Running...")
 
 	var cmd *exec.Cmd
-	cmd = exec.Command(buildPath(), "web")
+	if cmdArgs != "" {
+		cmd = exec.Command(buildPath(), cmdArgs)
+	} else {
+		cmd = exec.Command(buildPath())
+	}
 
 	stderr, err := cmd.StderrPipe()
 	if err != nil {
