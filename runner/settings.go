@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/BUGLAN/config"
+	"github.com/pilu/config"
 )
 
 const (
