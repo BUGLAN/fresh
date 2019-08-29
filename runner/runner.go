@@ -9,7 +9,7 @@ import (
 var cmdArgs string
 
 func init() {
-	flag.StringVar(&cmdArgs, "name", "", "Command line arguments to pass to the process")
+	flag.StringVar(&cmdArgs, "", "", "Command line arguments to pass to the process")
 }
 
 func run() bool {
