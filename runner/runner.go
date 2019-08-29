@@ -6,18 +6,20 @@ import (
 	"os/exec"
 )
 
-var cmdArgs string
+var cmdArgs []string
 
 func init() {
-	flag.StringVar(&cmdArgs, "", "", "Command line arguments to pass to the process")
+	flag.Parse()
+	cmdArgs = flag.Args()
 }
 
 func run() bool {
 	runnerLog("Running...")
 
+
 	var cmd *exec.Cmd
-	if cmdArgs != "" {
-		cmd = exec.Command(buildPath(), cmdArgs)
+	if len(cmdArgs) == 0  {
+		cmd = exec.Command(buildPath(), cmdArgs...)
 	} else {
 		cmd = exec.Command(buildPath())
 	}
