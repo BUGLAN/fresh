@@ -19,9 +19,9 @@ func run() bool {
 
 	var cmd *exec.Cmd
 	if len(cmdArgs) == 0  {
-		cmd = exec.Command(buildPath(), cmdArgs...)
-	} else {
 		cmd = exec.Command(buildPath())
+	} else {
+		cmd = exec.Command(buildPath(), cmdArgs...)
 	}
 
 	stderr, err := cmd.StderrPipe()
